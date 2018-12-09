@@ -105,37 +105,5 @@ public class Data {
 		}
 	}
 	
-	void reportCookingList() {//자취생에게 필요한 각종 꿀팁 정보들을 파일로 저장하는 메소드입니다.
-		FileOutputStream f_stream = null;
-		try {
-			f_stream = new FileOutputStream("HoneyTip_List");
-			ObjectOutputStream d_stream = new ObjectOutputStream(f_stream);
-			d_stream.writeObject(yourlist);
-			
-			f_stream.close();
-			d_stream.close();
-
-		}catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch(IOException e) {
-			e.printStackTrace();
-		} 
-	}
-	void readCookingList() {
-		FileInputStream f_stream = null;
-		try {
-			f_stream = new FileInputStream("HoneyTip_List");
-			ObjectInputStream d_stream = new ObjectInputStream(f_stream);
-			yourlist = (HashMap)d_stream.readObject();
-			f_stream.close();
-			d_stream.close();
-			
-		} catch(FileNotFoundException e) {
-			
-		} catch(IOException e) {
-			e.printStackTrace();
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
