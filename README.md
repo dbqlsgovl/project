@@ -17,15 +17,15 @@
  현직 자취생이 엄선한 재료가 비싸지 않고 간편하게 해먹을만한 요리 레시피의 목록이 쭉 출력됩니다. 레시피 이름을 정확하게 입력하면 그 요리법을 적은 블로그 링크가 자동으로 인터넷 브라우저에서 열립니다.  
 
 ### 클래스 설명  
- 자취생의 모든 것 프로그램에는 Data.java, LivingAlone.java, Housework.java, Meal.java, SimpleCooking.java, Main.java, 이렇게 6개의 클래스가 존재합니다. 선언되는 변수는 다음과 같습니다.  
+ 자취생의 모든 것 프로그램에는 Data.java, LivingAlone.java, Housework.java, Meal.java, SimpleCooking.java, Main.java, 이렇게 6개의 클래스가 존재합니다. 
+ 1. **Data.java**
+ 이 클래스는 데이터를 저장하고 불러오는 기능을 담당합니다. 선언되는 변수들은 다음과 같습니다.  
  
  ```
- String [] name = {"data_clean", "data_dishwashing", "data_laundry"};
+	String [] name = {"data_clean", "data_dishwashing", "data_laundry"};
 	String [] kor_name = {"청소", "설거지", "빨래"};
 	String [] meal_name = {"아침", "점심", "저녁"};
 	byte [] meal_component = new byte[3];
 	String [] component = new String[3];
  ```  
- 
- 1. **Data.java**
- 
+ void reportDate(int i)와 void compareDate(int i)는 집안일 데이터 관리에 쓰이는 메소드입니다. 네이버 블로그에 올라온 [강좌](https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true)를 참고, 응용했습니다. reportDate(int i)는 현재의 날짜를 LocalData 객체를 ObjectInputStream을 이용하여 직렬화해서 name[i] 이름을 가진 파일에 저장합니다. 예를 들어 인자 i가 0이면 name[0] = "data_clean"이므로, 현재 날짜가 data_clean 파일에 저장됩니다. 이후 저장된 데이터가 무슨 데이터인지를 출력합니다. void compareDate(int i)는 저장된 파일 name[i]를 ObjectOutputStream을 이용해 읽어온 후 LocalDate로 형변환합니다. 이후 현재 시간과 파일에 저장된 시간의 차이를 LocalDate.until()을 이용하여 Period 타입의 변수에 저장한 후, 
