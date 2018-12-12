@@ -26,7 +26,7 @@ public class Meal extends LivingAlone{
 	}
 	void nextMenu(int i) {
 		System.out.println("오늘 "+data.meal_name[i]+"을 드셨나요?");
-		System.out.println("1.제대로 된 밥을 먹었다.   2.인스턴트로 떼웠다.   3.굶었다.   4.아직 안 먹었다.");
+		System.out.println("1.제대로 된 밥을 먹었다.   2.인스턴트로 때웠다.   3.굶었다.   4.아직 안 먹었다.");
 		int a = super.yourChoice(4);
 		if(a==4)data.reportMealData(i, (byte)0);
 		else data.reportMealData(i, (byte)a);
@@ -53,7 +53,13 @@ public class Meal extends LivingAlone{
 					count_instant++;
 				}
 			}
-		System.out.println("을 인스턴트로 떼우셨군요! 제대로 된 식사를 하셨으면 좋겠어요.");
+		System.out.print("을 인스턴트로 때우셨군요! ");
+
+		switch(count_instant) {
+		case 1 : System.out.println();break;
+		case 2 : System.out.println("하루 두 끼를 인스턴트로 때우시다니, 건강이 걱정돼요...");break;
+		case 3 : System.out.println("귀찮으셔도 제발 제대로 된 식사를 해주세요! 정말 건강이 상해요!");break;
+			}
 		}
 		if(count_skipmeal>0) {
 			count_skipmeal=0;
@@ -65,16 +71,18 @@ public class Meal extends LivingAlone{
 					count_skipmeal++;
 				}
 			}
-			System.out.println("을 굶으셨군요. 굶으면 건강이 상해요.");
+			System.out.print("을 굶으셨군요. ");
+			switch(count_skipmeal) {
+			case 0 : System.out.println();break;
+			case 1 : System.out.println("굶으면 건강이 상해요.");break;
+			case 2 : System.out.println("두 끼나 굶으셨네요... 괜찮으신가요?");break;
+			case 3 : System.out.println("정말 세 끼를 다 굶으신 건가요? 과도한 단식은 영양실조, 저혈압, 저혈당 등 많은 부작용을 불러와요!");break;
+			}
 		}
 		System.out.println();
 	}
 	void today_did(){
 		data.readMealData();
-		//data.reportMealData(0, (byte)2);
-		/*for(int i=0;i<data.meal_component.length;i++) {
-			System.out.print(data.meal_component[i]+" ");
-		}*/
 		System.out.print("오늘은 [ ");
 		for(int i=0; i<3; i++) {
 			if((int)data.meal_component[i]==1 || (int)data.meal_component[i]==2) {

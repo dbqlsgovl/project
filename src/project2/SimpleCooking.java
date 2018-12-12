@@ -9,19 +9,15 @@ import java.net.URISyntaxException;
 public class SimpleCooking{
 	HashMap<String, String> basic_list = new HashMap<String, String>();
 	Scanner scanner;
-	Data data = new Data();
 	Desktop desktop;
 	void choiceMenu() {
 		while(true) {
 			System.out.println("자취생을 위한 간단 요리 코너!");
 			
-			System.out.println("1. 기본으로 제공 된 요리 목록     2. 나만의 요리 목록 관리   3. 메인 화면으로 돌아간다.");
-			int c = yourChoice(3);
-			if(c==3)break;
-			switch(c) {
-			case 1:BasicList();break;
-			case 2:yourList();break;
-			}
+			System.out.println("1. 요리 목록 보기    2. 메인 화면으로 돌아간다.");
+			int c = yourChoice(2);
+			if(c==2)break;
+			else BasicList();
 		}
 	}
 	
@@ -36,6 +32,9 @@ public class SimpleCooking{
 		basic_list.put("떡볶이", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=3777998&memberNo=740");
 		basic_list.put("계란토스트", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=1555166&memberNo=847606&searchRank=38");
 		basic_list.put("김계란말이", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=1555058&memberNo=847606&searchRank=60");
+		basic_list.put("계란볶음밥", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=1411503&memberNo=1109");
+		basic_list.put("계란탕", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=1555069&memberNo=847606");
+		basic_list.put("된장찌개", "https://m.post.naver.com/viewer/postView.nhn?volumeNo=1555114&memberNo=847606");
 		Set<String> keys = basic_list.keySet();
 		Iterator<String> it = keys.iterator();
 		
@@ -62,56 +61,7 @@ public class SimpleCooking{
 		}
 		
 	}
-	void yourList() {
-		System.out.println("당신만의 간단 요리 리스트를 만들고 관리해보세요!");
-		System.out.println("1.리스트 보기    2.리스트 만들기    3.리스트 지우기    4.메인으로 돌아간다.");
-		int c = yourChoice(4);
-		switch(c){
-		case 1 : showyourlist();break;
-		case 2: makeyourlist();break;
-		}
-		
 	
-	}
-	void showyourlist() {
-		data.readCookingList();
-		Set<String> keys = data.yourlist.keySet();
-		Iterator<String> it = keys.iterator();
-		while(it.hasNext()) {
-			String food = it.next();
-			String li = data.yourlist.get(food);
-			System.out.println(" < "+food+" > ");
-		}
-		data.readCookingList();
-		System.out.println("요리의 이름을 정확하게 입력해주시면 레시피 링크로 이동합니다. 이전 메뉴로 돌아가시려면 숫자 0을 입력해주세요.");
-		while(true) {
-			String input = scanner.nextLine();
-			if(input.equals("0")) break;
-			String link = data.yourlist.get(input);
-			if(link ==null)System.out.println(input+"는(은) 리스트에 존재하지 않습니다.");
-			else {
-				try {
-					desktop.browse(new URI(link));
-					break;
-				}catch(URISyntaxException e) {
-					e.printStackTrace();
-				}catch(IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-	}
-	void makeyourlist() {
-		while(true) {
-			System.out.println("당신의 요리 리스트를 작성합니다. 추가할 요리의 이름을 입력해주세요. 이전 화면으로 돌아가려면 0을 입력해주세요.");
-			String input_food = scanner.nextLine();
-			if(input_food.equals("0"))break;
-			System.out.println("레시피를 담은 링크를 입력해주세요.");
-			String input_link = scanner.nextLine();
-			data.yourlist.put(input_food, input_link);
-			data.reportCookingList();
-		}
-	}
 	int yourChoice(int i) {
 		scanner = new Scanner(System.in);
 		int choice;

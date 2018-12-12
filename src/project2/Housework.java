@@ -1,6 +1,5 @@
 package project2;
 
-//import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -58,22 +57,6 @@ public class Housework extends LivingAlone{
 		case 3:
 			System.out.println(" 당신은 집안일 마스터! 정말 성실하시군요!");
 			break;
-		}
-	}
-
-	
-
-	void clean() {
-		scanner = new Scanner(System.in);
-		System.out.println("\n<청소> 메뉴를 선택하셨습니다.");
-		data.compareDate(0);
-		if (Integer.parseInt(data.component[0]) == 0)
-			System.out.println("오늘 이미 청소기를 돌리셨군요. 대단해요!");
-		else {
-			if (data.component[0] == null)
-				System.out.println("청소 데이터가 존재하지 않습니다. 새 데이터를 기록해주세요!");
-			else
-				System.out.println("마지막으로 청소기를 돌린 지 " + data.component[0] + "일이 되었습니다.");
 		}
 	}
 

@@ -1,55 +1,57 @@
 package project2;
 
 import java.util.*;
-//import java.io.*;
 
 
 public class Main {
 	Scanner scanner;
-	Main(){
-		int is_first=0;
-		if(is_first ==1) tutorial();
-	}
+
 	void run() {
 		System.out.println("자취생의 생활패턴을 관리해주는 매니저! [자취생의 모든 것]입니다!");
-		System.out.println("건강한 자취생활을 위해 집안일, 식단을 관리해 보아요!\n");
+		System.out.println("건강한 자취생활을 위해 집안일, 식단을 관리해 보아요! 당신을 위한 간편한 요리 리스트도 준비되어 있습니다!\n");
 		while(true) {
 		showMenu();
 		choiceMenu();
 		}
 	}
 	void showMenu() {
-		/*Data data= new Data();
-		data.readMealData();
-		data.reportMealData(1,1);
-		for(int i=0;i<data.meal_component.length;i++) {
-			System.out.print(data.meal_component[i]+" ");
-		}*/
 		System.out.println("Menu");
 		System.out.println(">>>>1. 집안일 관리       2. 식단 관리      3. 간단 요리     4. 프로그램 종료<<<<");
 	}
 
 	void choiceMenu() {
-		scanner = new Scanner(System.in);
 		Housework housework = new Housework();
 		Meal meal = new Meal();
 		SimpleCooking simplecooking = new SimpleCooking();
-		int choice = scanner.nextInt();
-		switch(choice) {
-		case 1 : housework.choiceMenu(); break;
-		case 2 : meal.choiceMenu();break;
-		case 3 : simplecooking.choiceMenu();break;
+			int choice = yourChoice(4);
+			switch(choice) {
+			case 1 : housework.choiceMenu(); break;
+			case 2 : meal.choiceMenu();break;
+			case 3 : simplecooking.choiceMenu();break;
+			case 4 : System.out.println("프로그램을 종료합니다..."); System.exit(0);
+			default : break;
+			}
+		}
+	int yourChoice(int i) {
+		scanner = new Scanner(System.in);
+		int choice;
+		while(true) {
+			try {
+				choice = scanner.nextInt();
+			}
+			catch(InputMismatchException e) {
+				scanner.nextLine();
+				continue;
+			}
+			if(choice<=0 || choice>i) {
+				scanner.nextLine();
+				continue;
+			}
+			scanner.nextLine();
+			return choice;
 		}
 	}
 	
-	void tutorial() {
-		
-		System.out.println("<자취생의 모든 것>에 오신 것을 환영합니다!");
-		System.out.println("이제부터 혼자 사는 당신의 생활 습관을 관리해 드리겠습니다.");
-		System.out.println("당신의 이름은 무엇인가요?");
-		String user_name = scanner.nextLine();
-		System.out.println(user_name + "님 이시군요! 앞으로 잘 부탁드립니다.");
-	}
 	public static void main(String[] args) {
 		Main main = new Main();
 		main.run();

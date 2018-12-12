@@ -3,7 +3,7 @@ package project2;
 import java.io.*;
 import java.time.*;
 import java.util.Date;
-import java.util.*;
+
 
 public class Data {
 	String [] name = {"data_clean", "data_dishwashing", "data_laundry"};
@@ -11,7 +11,6 @@ public class Data {
 	String [] meal_name = {"아침", "점심", "저녁"};
 	byte [] meal_component = new byte[3];
 	String [] component = new String[3];
-	HashMap<String, String> yourlist = new HashMap<String, String>();
 	
 	void reportDate(int i) {
 		FileOutputStream f_stream = null;
@@ -42,7 +41,6 @@ public class Data {
 			ObjectInputStream d_stream = new ObjectInputStream(f_stream);
 			data = (LocalDate)d_stream.readObject();
 			Period period = data.until(today);
-			//System.out.print((int)period.getDays());
 			this.component[i] = Integer.toString(period.getDays());
 			f_stream.close();
 			d_stream.close();
@@ -56,14 +54,14 @@ public class Data {
 		}
 		
 	}
-	void reportMealData(int meal_number, byte j) {//파일에 어제의 데이터가 저장돼있으면 다 지우고 식사의 배열을 [0,0,0,]으로 초기화 후 . 만약 오늘의 데이터면, 입력받은 j를 
+	void reportMealData(int meal_number, byte j) {
 		FileOutputStream f_stream = null;
 		try {
 			f_stream = new FileOutputStream("data_meal");
 			
 			meal_component[meal_number] = j;
 			f_stream.write(meal_component);
-			
+			System.out.println("< "+meal_name[meal_number]+" > 데이터가 기록되었습니다.\n");
 			f_stream.close();
 		}catch(FileNotFoundException e) {
 			
@@ -104,6 +102,5 @@ public class Data {
 			return false;
 		}
 	}
-	
 	
 }
