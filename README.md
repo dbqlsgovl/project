@@ -16,3 +16,16 @@
 1. **간단 요리** :  
  현직 자취생이 엄선한 재료가 비싸지 않고 간편하게 해먹을만한 요리 레시피의 목록이 쭉 출력됩니다. 레시피 이름을 정확하게 입력하면 그 요리법을 적은 블로그 링크가 자동으로 인터넷 브라우저에서 열립니다.  
 
+### 클래스 설명  
+ 자취생의 모든 것 프로그램에는 Data.java, LivingAlone.java, Housework.java, Meal.java, SimpleCooking.java, Main.java, 이렇게 6개의 클래스가 존재합니다. 선언되는 변수는 다음과 같습니다.  
+ 
+ ```
+ String [] name = {"data_clean", "data_dishwashing", "data_laundry"};
+	String [] kor_name = {"청소", "설거지", "빨래"};
+	String [] meal_name = {"아침", "점심", "저녁"};
+	byte [] meal_component = new byte[3];
+	String [] component = new String[3];
+ ```  
+ 
+ 1. **Data.java**
+ 
