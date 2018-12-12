@@ -50,4 +50,10 @@
   int Meal_Time()은 현재 시각을 LocalDate 타입의 now에 저장한 후, 6시부터 11시 사이인지, 12시부터 13시 사이인지, 17시부터 20시 사이인지를 판단한 후 각각 1, 2, 3을 리턴합니다. 만약 셋 중 어디에도 속하지 않을 때는 0을 리턴합니다.
   void show_time()은 int t = Meal_Time()을 시행시킨 후 1이면 아침, 2면 점심, 3이면 저녁을 먹을 시간이라는 메시지를 출력합니다.
   
-### **
+#### **SimpleCooking**
+ SimpleCooking.java는 간단 요리 레시피 목록을 출력하고, 레시피 이름을 입력받으면 브라우저가 실행되어 레시피가 적힌 링크로 이동합니다. 레시피 이름과 링크를 쉽게 저장하기 위해 HashMap 컬렉션을 사용했습니다. 또, 링크 이동을 구현하기 위해 Desktop 객체를 선언했습니다.
+ void choicemenu()는 레시피 목록을 출력할지, 메인 화면으로 돌아갈지의 선택지를 제공합니다.
+ void BasicList()는 제작자가 엄선한 리스트를 basic_list에 put하고 전부 출력합니다. 이후 요리의 이름을 입력받는데, 리스트에 없는 이름을 입력하면 다시 입력하도록 합니다. 리스트에 존재한다면, Desktop.browse(new URI(link))를 통해 링크로 이동합니다.
+ 
+#### **Main.java**
+ 프로그램을 실행시키는 main 메소드가 포함된 클래스입니다. 이곳에서 Housework, Meal, SimpleCooking 객체가 선언됩니다. main 메소드에선 main 객체가 생성되고, main.run()이 실행됩니다. void run()은 프로그램을 실행시킬 때마다 뜨는 안내 메시지를 띄우고, showMenu()와 choiceMenu()를 반복 실행시킵니다. showMenu()는 메뉴를 보여주는 기능을 수행합니다. choiceMenu()는 사용자의 선택지에 따라 housework.choiceMenu(), meal.choiceMenu(), simplecooking.choiceMenu()를 실행시키고, 4번을 입력했을 때 프로그램을 종료합니다. 
