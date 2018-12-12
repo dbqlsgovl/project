@@ -17,8 +17,8 @@
  현직 자취생이 엄선한 재료가 비싸지 않고 간편하게 해먹을만한 요리 레시피의 목록이 쭉 출력됩니다. 레시피 이름을 정확하게 입력하면 그 요리법을 적은 블로그 링크가 자동으로 인터넷 브라우저에서 열립니다.  
 
 ### 클래스 설명  
- 자취생의 모든 것 프로그램에는 Data.java, LivingAlone.java, Housework.java, Meal.java, SimpleCooking.java, Main.java, 이렇게 6개의 클래스가 존재합니다. 
- ####1. **Data.java**
+ 자취생의 모든 것 프로그램에는 Data.java, LivingAlone.java, Housework.java, Meal.java, SimpleCooking.java, Main.java, 이렇게 6개의 클래스가 존재합니다.   
+#### **Data.java**
  이 클래스는 데이터를 저장하고 불러오는 기능을 담당합니다. 선언되는 변수들은 다음과 같습니다.  
  
  ```
@@ -32,5 +32,8 @@
  void reportDate(int i)와 void compareDate(int i)는 집안일 데이터 관리에 쓰이는 메소드입니다. 네이버 블로그에 올라온 [강좌](https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true)를 참고, 응용했습니다. reportDate(int i)는 현재의 날짜를 LocalData 객체를 ObjectInputStream을 이용하여 직렬화해서 name[i] 이름을 가진 파일에 저장합니다. 예를 들어 인자 i가 0이면 name[0] = "data_clean"이므로, 현재 날짜가 data_clean 파일에 저장됩니다. 이후 저장된 데이터가 어느 종류의 데이터인지를 출력합니다. void compareDate(int i)는 저장된 파일 name[i]를 ObjectOutputStream을 이용해 읽어온 후 LocalDate로 형변환합니다. 이후 현재 시간과 파일에 저장된 시간의 차이를 LocalDate.until()을 이용하여 Period 타입의 변수에 저장한 후, int로 변환하여 component[i]에 일수의 차이를 저장합니다. component[i]는 Housework 클래스에서 사용됩니다.  
  void reportMealData(int meal_number, byte j)와 boolean isn_it_today(), void readMealData()는 식사 데이터 관리에 쓰이는 메소드입니다. reportMealData(int meal_number, byte j)는 meal_component[meal_number]에 j값을 저장한 후, data_meal 파일에 meal_component를 저장합니다. 그 후 저장이 성공적으로 이루어졌다는 메시지를 출력합니다. isn_it_today()는 data_meal 파일이 마지막으로 수정된 시간이 오늘인지, 오늘 이전인지를 반환하는 메소드입니다. java.io.File.lastModified()를 이용해 Date 형태로 마지막으로 수정된 날짜를 불러옵니다. Date형태의 날짜를 LocalDate로 형변환하여 until과 getDays를 이용해 현재 날짜와의 차이를 구한 후, 그 차이가 0이 아니면 true를 반환, 0이면 false를 반환합니다. readMealDate()는 data_meal 파일에 저장된 byte 배열을 그대로 meal_component에 저장하는 메소드입니다. isnt_it_today 메소드를 사용하여, 만약 마지막 수정날짜가 오늘이 아니라면 굳이 불러올 필요가 없으므로 meal_component의 모든 원소를 0으로 초기화합니다. 오늘이라면 data_meal에 저장된 내용을 meal_component에 저장합니다.  
  
- 1. ** **
+#### **LivingAlone.java**
+ LivingAlone.java는 Housework.java와 Meal.java를 상속하는 추상 클래스입니다. 이 클래스 내에선 Data 객체가 선언되고, 메뉴를 출력하는 void choicemenu(), 잔소리를 출력하는 void jansori(), 오늘 한 일의 내용을 출력하는 void today_did()가 추상 메솓로 선언됩니다. 또한 유저의 선택지를 입력받을 때 try, catch를 사용하여 예외처리를 하는 것을 매번 넣는 것은 번거로우므로 그 기능을 구현한 int yourChoice(int i) 가 구현되어 있습니다. 여기서 i는 선택지의 개수를 의미합니다. 이 메소드는 유저가 입력한 숫자를 반환하는데, 숫자가 아닌 것을 입력하거나 범위 밖의 숫자를 입력했을 때 제대로 입력을 받을 때까지 유저에게 입력을 받습니다.  
  
+#### **Housework.java**
+ Housework.java는 집안일 관리의 클래스로, LivingAlone을 상속받습니다. 
