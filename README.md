@@ -62,7 +62,7 @@
  [링크](https://drive.google.com/drive/u/1/folders/1g_L-A_JwSi0C3BAAPr758ta10LqFkr12)
  
 ### 참고 자료
- 황기태, 명품 자바 에센셜
+ 황기태, 명품 자바 에센셜  
  자바 파일 입출력(ObjectInputStream, ObjectOutputStream) :
 https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true  
  java.time 패키지 : https://blog.naver.com/nbb_pinetree/221286367266  
