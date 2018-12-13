@@ -66,4 +66,5 @@
  자바 파일 입출력(ObjectInputStream, ObjectOutputStream) :
 https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true  
  java.time 패키지 : https://blog.naver.com/nbb_pinetree/221286367266  
- java URI : https://blog.naver.com/drawcoding/221196444798  
+ java URI : https://blog.naver.com/drawcoding/221196444798
+ 컴맹도 이해하는 깃허브 사용법 2- 저장소를 만들고 연동하기 : https://blog.naver.com/euleekwon/221320773399
