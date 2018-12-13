@@ -63,7 +63,7 @@
  
 ### 참고 자료
  황기태, 명품 자바 에센셜
- 자바 파일 입출력(ObjectInputStream, ObjectOutputStream) : 
-https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true
- java.time 패키지 : https://blog.naver.com/nbb_pinetree/221286367266
- java URI : https://blog.naver.com/drawcoding/221196444798
+ 자바 파일 입출력(ObjectInputStream, ObjectOutputStream) :
+https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true  
+ java.time 패키지 : https://blog.naver.com/nbb_pinetree/221286367266  
+ java URI : https://blog.naver.com/drawcoding/221196444798  
