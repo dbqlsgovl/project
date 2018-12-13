@@ -57,3 +57,13 @@
  
 #### **Main.java**
  프로그램을 실행시키는 main 메소드가 포함된 클래스입니다. 이곳에서 Housework, Meal, SimpleCooking 객체가 선언됩니다. main 메소드에선 main 객체가 생성되고, main.run()이 실행됩니다. void run()은 프로그램을 실행시킬 때마다 뜨는 안내 메시지를 띄우고, showMenu()와 choiceMenu()를 반복 실행시킵니다. showMenu()는 메뉴를 보여주는 기능을 수행합니다. choiceMenu()는 사용자의 선택지에 따라 housework.choiceMenu(), meal.choiceMenu(), simplecooking.choiceMenu()를 실행시키고, 4번을 입력했을 때 프로그램을 종료합니다. 
+ 
+### 시연 영상
+ [링크](https://drive.google.com/drive/u/1/folders/1g_L-A_JwSi0C3BAAPr758ta10LqFkr12)
+ 
+### 참고 자료
+ 황기태, 명품 자바 에센셜
+ 자바 파일 입출력(ObjectInputStream, ObjectOutputStream) : 
+https://blog.naver.com/PostView.nhn?blogId=highkrs&logNo=220476927234&isFromSearchAddView=true
+ java.time 패키지 : https://blog.naver.com/nbb_pinetree/221286367266
+ java URI : https://blog.naver.com/drawcoding/221196444798
